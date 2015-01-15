@@ -1,5 +1,6 @@
 <?php
-# Retrieve guild information
+# Retrieve guild and character information
+include 'charInfo.php';
 function guildInfo() {
  
 	$guildJSON = file_get_contents("http://eu.battle.net/api/wow/guild/Bloodhoof/Solipsists?fields=members", FILE_TEXT);
@@ -16,7 +17,10 @@ function guildInfo() {
 		$role =  $memberAry[$i]->{"character"}->{"spec"}->{"role"};
 		$class = $memberAry[$i]->{"character"}->{"class"};
 		$rank = $memberAry[$i]->{"rank"};
-		$line = [$name, $realm, $role, $class, $rank];
+
+		$char = charInfo($name, $realm);
+
+		$line = [$name, $realm, $role, $class, $rank, $char];
 		
 		array_push($returnObject, $line);
 	}
