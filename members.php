@@ -25,7 +25,6 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th>#</th>
 					<th>Name</th>
 					<th>Realm</th>
 					<th>Role</th>
@@ -67,17 +66,16 @@
 	<?php
 		include 'config.php';
 		include 'queries.php';
-		$conn = new mysqli($db_server, $db_username, $db_password, $db_name);
+		$conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 		if ($conn->connect_error){
 			die("Connection failed: " . $conn->connect_error);
 		}
-		$result = $conn->query($members);
+		$result = $conn->query(MEMBERS);
 		
 		if ($result->num_rows > 0) {
 			// output data of each row
 			while($row = $result->fetch_assoc()) {
 				echo "<tr>";
-				echo "<td>" . $row["id"] . "</td>";
 				echo "<td>" . $row["name"] . "</td>";
 				echo "<td>" . $row["realm"] . "</td>";
 				echo "<td>" . $row["role"] . "</td>";

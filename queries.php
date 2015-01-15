@@ -1,3 +1,3 @@
 <?php
-$members = "SELECT * FROM members"
+define('MEMBERS','SELECT * FROM members');
 ?>

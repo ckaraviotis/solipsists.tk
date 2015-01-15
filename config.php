@@ -1,8 +1,8 @@
 <?php
 # Config file
 # DB connection settings
-$db_server =  "localhost"
-$db_name = "ck_solipsists"
-$db_username = "solipsists"
-$db_password = ""
+define('DB_SERVER','localhost');
+define('DB_NAME','ck_solipsists');
+define('DB_USERNAME', 'solipsists');
+define('DB_PASSWORD', 'Rb2q7fqHj3');
 ?>
