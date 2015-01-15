@@ -1,10 +1,8 @@
 <?php
+#
 # Update guild information in the database
-//ini_set('display_errors','On');
-//error_reporting(E_ALL);
-
-include 'config.php';
-include 'queries.php';
+#
+include '/var/www/beta.solipsists.tk/resources/config.php';
 include 'guildInfo.php';
 
 $conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
@@ -80,5 +78,4 @@ INSERT INTO members (name, realm, role, class, level, ilvl, ring_max, heroics, h
 	$stmt->close();
 }
 $conn->close();
-?>
 

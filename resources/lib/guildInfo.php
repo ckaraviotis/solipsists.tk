@@ -1,12 +1,13 @@
 <?php
+#
 # Retrieve guild and character information
+#
+include '/var/www/beta.solipsists.tk/resources/config.php';
 include 'charInfo.php';
-function guildInfo() {
- 
-	$guildJSON = file_get_contents("http://eu.battle.net/api/wow/guild/Bloodhoof/Solipsists?fields=members", FILE_TEXT);
-	$guild = json_decode($guildJSON); 
 
-	//echo $guildJSON;
+function guildInfo() {
+	$guildJSON = file_get_contents('http://eu.battle.net/api/wow/guild/'.GUILD_SRVR.'/'.GUILD_NAME.'?fields=members', FILE_TEXT);
+	$guild = json_decode($guildJSON); 
 
 	$memberAry = $guild->{"members"};
 	$returnObject = [];
@@ -24,25 +25,5 @@ function guildInfo() {
 		
 		array_push($returnObject, $line);
 	}
-/*
-	if(DEBUG==true) {
-		echo "<pre>";
-		print_r($guild);
-		echo "</pre>";
-	}
-
-*/
 	return $returnObject;
-
-
-/*
-	$line = new Array();
-	$toonInfo = pull(name, realm);
-	line.push(name, realm, role);
-	for (j = 0; j < toonInfo.length; j++) {
-		line.push(toonInfo[j])
-	}
-	returnObject.push(line)
-*/
 }
-?>

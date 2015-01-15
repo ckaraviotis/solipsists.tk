@@ -43,12 +43,4 @@ FROM
 	INNER JOIN wow_classes ON members.class = wow_classes.id
 ');
 
-# Class colors
-define('CLASS_COLOUR',
-'
-SELECT
-	wow_classes.colour
-FROM
-	wow_classes
-');
-?>
+

@@ -1,4 +1,7 @@
 <?php
+#
+# Get full character item, statistics, progression and talent info from the armory
+#
 function charInfo($name, $realm) {
 
 	$url = 'http://eu.battle.net/api/wow/character/'.$realm.'/'.$name.'?fields=items,statistics,progression,talents';
@@ -15,7 +18,6 @@ function charInfo($name, $realm) {
 	$heroicKills += $wodStats[11]->{"quantity"};
 	$heroicKills += $wodStats[13]->{"quantity"};
 	$heroicKills += $wodStats[15]->{"quantity"};
-
 
 	$head = $char->{"items"}->{"head"}->{"itemLevel"};
 	$neck = $char->{"items"}->{"neck"}->{"itemLevel"};
@@ -70,4 +72,4 @@ function charInfo($name, $realm) {
 
 	return $returnObject;
 }
-?>
+

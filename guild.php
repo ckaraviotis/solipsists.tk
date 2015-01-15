@@ -4,7 +4,7 @@
 <body>
 <pre>
 <?php
-	include 'guildInfo.php';
+	include 'resources/lib/guildInfo.php';
 	print_r(guildInfo());
 ?>
 </pre>
