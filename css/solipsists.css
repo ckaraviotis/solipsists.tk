@@ -1,3 +1,5 @@
+/* Class Colours */
+
 .deathknight {
 	background-color: #C41F3B !important;
 }
@@ -40,4 +42,21 @@
 
 .warrior {
 	background-color: #C79C6E !important;
+}
+
+/* Quality Colours */
+.uncommon {
+	background-color: #1eff00 !important;
+}
+
+.rare {
+	background-color: #0070dd !important;
+}
+
+.epic {
+	background-color: #a335ee !important;
+}
+
+.legendary {
+	background-color: #ff8000 !important;
 }

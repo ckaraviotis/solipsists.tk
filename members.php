@@ -83,10 +83,27 @@
 				echo '<td>' . $row["name"] . '</td>';			
 				echo "<td>" . $row["realm"] . "</td>";
 				echo "<td>" . $row["role"] . "</td>";
-				echo "<td class=\"" . $row["classname"] . "\">"  . $row["classname"] . "</td>";
+				echo "<td class=\"" . $row["css_name"] . "\">"  . $row["classname"] . "</td>";
 				echo "<td> nil </td>";
 				echo "<td>" . $row["level"] . "</td>";
-				echo "<td>" . $row["ilvl"] . "</td>";
+
+				// Style cell based on ilvl value
+				if ($row["ilvl"] >= 665) {
+					echo "<td class=\"legendary\">";
+				}
+				else if ($row["ilvl"] >= 650) {
+					echo "<td class=\"epic\">";
+				}
+				else if ($row["ilvl"] >= 635){
+					echo "<td class=\"rare\">";
+				}
+				else if ($row["ilvl"] >= 615) {
+					echo "<td class=\"uncommon\">";
+				}
+				else {
+					echo "<td>";
+				}
+				echo $row["ilvl"] . "</td>";
 				echo "<td>" . $row["ring_max"] . "</td>";
 				echo "<td>" . $row["heroics"] . "</td>";
 				echo "<td>" . $row["head"] . "</td>";

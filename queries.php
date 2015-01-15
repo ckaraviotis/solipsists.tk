@@ -37,7 +37,7 @@ define('MEMBERS',
 	members.blackrock_kills_normal,
 	members.blackrock_kills_heroic, 
 	members.blackrock_kills_mythic,
-	wow_classes.colour
+	wow_classes.css_name
 FROM
 	members
 	INNER JOIN wow_classes ON members.class = wow_classes.id
