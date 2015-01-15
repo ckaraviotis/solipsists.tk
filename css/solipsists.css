@@ -1,11 +1,43 @@
-.Warrior {
-	background-color: #C79C6E !important;
-}
-
-.dk {
+.deathknight {
 	background-color: #C41F3B !important;
 }
 
 .druid {
-	background-co	
+	background-color: #FF7D0A !important;
+}
+
+.hunter {
+	background-color: #ABD473 !important;
+}
+
+.mage {
+	background-color: #69CCF0 !important;
+}
+
+.monk {
+	background-color: #00FF96 !important;
+}
+
+.paladin {
+	background-color: #F58CBA !important;
+}
+
+.priest {
+	background-color: #FFFFFF !important;
+}
+
+.rogue {
+	background-color: #FFF569 !important;
+}
+
+.shaman {
+	background-color: #0070DE !important;
+}
+
+.warlock {
+	background-color: #9482C9 !important;
+}
+
+.warrior {
+	background-color: #C79C6E !important;
 }
