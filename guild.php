@@ -1,10 +1,10 @@
 <html>
 <body>
-
+<pre>
 <?php
 	include 'guildInfo.php';
-	guildInfo();
+	print_r(guildInfo());
 ?>
-
+</pre>
 </body>
 </html>

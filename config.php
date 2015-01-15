@@ -1,5 +1,7 @@
 <?php
 # Config file
+# Debug settings
+define('DEBUG',false);
 # DB connection settings
 define('DB_SERVER','localhost');
 define('DB_NAME','ck_solipsists');
