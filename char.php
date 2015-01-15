@@ -3,7 +3,7 @@
 <pre>
 <?php
 	include 'charInfo.php';
-	print_r(charInfo("spaceface","bloodhoof"));
+	print_r(charInfo("Månaliza","khadgar"));
 ?>
 </pre>
 </body>

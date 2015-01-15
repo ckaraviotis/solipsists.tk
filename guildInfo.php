@@ -12,7 +12,7 @@ function guildInfo() {
 	$returnObject = [];
 
 	for($i=0;$i < count($memberAry); $i++) {
-		$name =  mb_convert_encoding($memberAry[$i]->{"character"}->{"name"}, 'HTML-ENTITIES', 'UTF-8');
+		$name = $memberAry[$i]->{"character"}->{"name"};
 		$realm =  $memberAry[$i]->{"character"}->{"realm"};
 		$role =  $memberAry[$i]->{"character"}->{"spec"}->{"role"};
 		$class = $memberAry[$i]->{"character"}->{"class"};

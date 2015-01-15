@@ -17,7 +17,7 @@ $guildInfo = guildInfo();
 for($i = 0; $i < count($guildInfo); $i++) {
 	$name = $guildInfo[$i][0];
 	$realm = $guildInfo[$i][1];
-	$role = $guildInfo[$i][2];
+	$role = !isset($guildInfo[$i][2]) ? "N/A" : $guildInfo[$i][2];
 	$class = !isset($guildInfo[$i][3]) ? 0 : $guildInfo[$i][3];
 	$rank = !isset($guildInfo[$i][4]) ? 0 : $guildInfo[$i][4];
 	$heroicKills = !isset($guildInfo[$i][5][0]) ? 0 : $guildInfo[$i][5][0];
@@ -69,7 +69,7 @@ INSERT INTO members (name, realm, role, class, level, ilvl, ring_max, heroics, h
 		blackrock_kills_mythic=VALUES(blackrock_kills_mythic)
 	");
 
-	$stmt->bind_param("sssiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",$name, $realm, $role, $class, $rank, $heroicKills, $ilvl, $ring_max, $head, $neck, $shoulder, $back, $chest, $wrist, $hands, $waist, $legs, $feet, $ring1, $ring2, $trinket1, $trinket2, $mainhand, $offhand, $enchant_weapon, $enchant_neck, $enchant_ring1, $enchant_ring2, $enchant_cloak, $highmaul_normal_kills , $highmaul_heroic_kills , $highmaul_mythic_kills , $blackrock_normal_kills, $blackrock_heroic_kills, $blackrock_mythic_kills);
+	$stmt->bind_param("sssiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",$name, $realm, $role, $class, $level, $ilvl, $ring_max, $heroicKills, $head, $neck, $shoulder, $back, $chest, $wrist, $hands, $waist, $legs, $feet, $ring1, $ring2, $trinket1, $trinket2, $mainhand, $offhand, $enchant_weapon, $enchant_neck, $enchant_cloak, $enchant_ring1, $enchant_ring2, $highmaul_normal_kills , $highmaul_heroic_kills , $highmaul_mythic_kills , $blackrock_normal_kills, $blackrock_heroic_kills, $blackrock_mythic_kills);
 
 	if( $stmt->execute() ) {
 		echo "<b>$name</b> written to database OK.<br />";

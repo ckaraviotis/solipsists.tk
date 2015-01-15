@@ -9,10 +9,12 @@
 	<meta name="author" content="">
 	<link rel="icon" href="../../favicon.ico">
 
-	<title>Jumbotron Template for Bootstrap</title>
+	<title>Solipsists Guild Members</title>
 
 	<!-- Bootstrap core CSS -->
 	<link href="dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="dist/css/bootstrap-table.min.css">
+	<link href="css/solipsists.css" rel="stylesheet">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -21,17 +23,19 @@
 	<![endif]-->
 </head>
 <body>
+<div class="container">
 	<div class="table-responsive">
-		<table class="table table-striped">
+		<table data-toggle="table" class="table table-striped table-condensed">
 			<thead>
 				<tr>
-					<th>Name</th>
-					<th>Realm</th>
-					<th>Role</th>
-					<th>Class</th>
-					<th>Level</th>
-					<th>iLvl</th>
-					<th>Ring(Max)</th>
+					<th data-sortable="true">Name</th>
+					<th data-sortable="true">Realm</th>
+					<th data-sortable="true">Role</th>
+					<th data-sortable="true">Class</th>
+					<th data-sortable="true">Rank</th>
+					<th data-sortable="true">Level</th>
+					<th data-sortable="true">iLvl</th>
+					<th data-sortable="true">Ring(Max)</th>
 					<th>Heroics</th>
 					<th>Head</th>
 					<th>Neck</th>
@@ -54,12 +58,12 @@
 					<th>Enchant: Cloak</th>
 					<th>Enchant: Ring 1</th>
 					<th>Enchant: Ring 2</th>
-					<th>Highmaul: Normal</th>
-					<th>Highmaul: Heroic</th>
-					<th>Highmaul: Mythinc</th>
-					<th>BRF: Normal</th>
-					<th>BRF: Heroic</th>
-					<th>BRF: Mythic</th>
+					<th data-sortable="true">Highmaul: Normal</th>
+					<th data-sortable="true">Highmaul: Heroic</th>
+					<th data-sortable="true">Highmaul: Mythinc</th>
+					<th data-sortable="true">BRF: Normal</th>
+					<th data-sortable="true">BRF: Heroic</th>
+					<th data-sortable="true">BRF: Mythic</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -76,10 +80,11 @@
 			// output data of each row
 			while($row = $result->fetch_assoc()) {
 				echo "<tr>";
-				echo "<td>" . $row["name"] . "</td>";
+				echo '<td>' . $row["name"] . '</td>';			
 				echo "<td>" . $row["realm"] . "</td>";
 				echo "<td>" . $row["role"] . "</td>";
-				echo "<td>" . $row["class"] . "</td>";
+				echo "<td class=\"" . $row["classname"] . "\">"  . $row["classname"] . "</td>";
+				echo "<td> nil </td>";
 				echo "<td>" . $row["level"] . "</td>";
 				echo "<td>" . $row["ilvl"] . "</td>";
 				echo "<td>" . $row["ring_max"] . "</td>";
@@ -120,13 +125,13 @@
 			</tbody>
 		</table>
 	</div>
+</div>
 
 	<!-- Bootstrap core JavaScript
 	================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="../../dist/js/bootstrap.min.js"></script>
-	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+	<script src="dist/js/bootstrap.min.js"></script>
+	<script src="dist/js/bootstrap-table.min.js"></script>
 </body>
 </html>
