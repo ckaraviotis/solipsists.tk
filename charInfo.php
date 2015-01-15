@@ -4,7 +4,7 @@ function charInfo($name, $realm) {
 	$url = 'http://eu.battle.net/api/wow/character/'.$realm.'/'.$name.'?fields=items,statistics,progression,talents';
 	$charJSON = file_get_contents($url, FILE_TEXT);
 	$char = json_decode($charJSON);
-	
+
 	$wodStats = $char->{"statistics"}->{"subCategories"}[5]->{"subCategories"}[5]->{"statistics"};
 
 	$heroicKills += $wodStats[1]->{"quantity"};
@@ -60,7 +60,10 @@ function charInfo($name, $realm) {
                 $blackrock_mythic_kills += $blackrockStats[$i]->{"mythicKills"};
         }
 
-	$returnObject = [$heroicKills, $head, $neck, $shoulder, $back, $chest, $wrist, $hands, $waist, $legs, $feet, $finger1, $finger2, $trinket1, $trinket2, $mainHand, $offHand,
+
+	$ilvl = $char->{"items"}->{"averageItemLevel"};
+
+	$returnObject = [$heroicKills, $ilvl, $head, $neck, $shoulder, $back, $chest, $wrist, $hands, $waist, $legs, $feet, $finger1, $finger2, $trinket1, $trinket2, $mainHand, $offHand,
 	$weaponEnchant, $neckEnchant, $ring1Enchant, $ring2Enchant, $cloakEnchant, $highmaul_normal_kills, $highmaul_heroic_kills, $highmaul_mythic_kills,
 	$blackrock_normal_kills, $blackrock_heroic_kills, $blackrock_mythic_kills
 	];
