@@ -15,48 +15,46 @@ if ($conn->connect_error){
 $guildInfo = guildInfo();
 
 for($i = 0; $i < count($guildInfo); $i++) {
-	$name = max($guildInfo[$i][0], 0);
-	$realm = max($guildInfo[$i][1], 0);
-	$role = max($guildInfo[$i][2], 0);
-	$class = max($guildInfo[$i][3], 0);
-	$rank = max($guildInfo[$i][4], 0);
-	$heroicKills = max($guildInfo[$i][5][0], 0);
-	$ilvl = max($guildInfo[$i][5][1], 0);
-	$head = max($guildInfo[$i][5][2], 0);
-	$neck = max($guildInfo[$i][5][3], 0);
-	$shoulder = max($guildInfo[$i][5][4], 0);
-	$back = max($guildInfo[$i][5][5], 0);
-	$chest = max($guildInfo[$i][5][6], 0);
-	$wrist = max($guildInfo[$i][5][7], 0);
-	$hands = max($guildInfo[$i][5][8], 0);
-	$waist = max($guildInfo[$i][5][9], 0);
-	$legs = max($guildInfo[$i][5][10], 0);
-	$feet = max($guildInfo[$i][5][11], 0);
-	$ring1 = max($guildInfo[$i][5][12], 0);
-	$ring2 = max($guildInfo[$i][5][13], 0);
-	$trinket1 = max($guildInfo[$i][5][14], 0);
-	$trinket2 = max($guildInfo[$i][5][15], 0);
-	$mainhand = max($guildInfo[$i][5][16], 0);
-	$offhand = max($guildInfo[$i][5][17], 0);
-	$enchant_weapon = max($guildInfo[$i][5][18], 0);
-	$enchant_neck = max($guildInfo[$i][5][19], 0);
-	$enchant_ring1 = max($guildInfo[$i][5][20], 0);
-	$enchant_ring2 = max($guildInfo[$i][5][21], 0);
-	$enchant_cloak = max($guildInfo[$i][5][22], 0);
-	$highmaul_normal_kills = max($guildInfo[$i][5][23], 0);
-	$highmaul_heroic_kills = max($guildInfo[$i][5][24], 0);
-	$highmaul_mythic_kills = max($guildInfo[$i][5][25], 0);
-	$blackrock_normal_kills = max($guildInfo[$i][5][26], 0);
-	$blackrock_heroic_kills = max($guildInfo[$i][5][27], 0);
-	$blackrock_mythic_kills = max($guildInfo[$i][5][28], 0);
+	$name = $guildInfo[$i][0];
+	$realm = $guildInfo[$i][1];
+	$role = $guildInfo[$i][2];
+	$class = !isset($guildInfo[$i][3]) ? 0 : $guildInfo[$i][3];
+	$rank = !isset($guildInfo[$i][4]) ? 0 : $guildInfo[$i][4];
+	$heroicKills = !isset($guildInfo[$i][5][0]) ? 0 : $guildInfo[$i][5][0];
+	$ilvl = !isset($guildInfo[$i][5][1]) ? 0 : $guildInfo[$i][5][1];
+	$head = !isset($guildInfo[$i][5][2]) ? 0 : $guildInfo[$i][5][2];
+	$neck = !isset($guildInfo[$i][5][3]) ? 0 : $guildInfo[$i][5][3];
+	$shoulder = !isset($guildInfo[$i][5][4]) ? 0 : $guildInfo[$i][5][4];
+	$back = !isset($guildInfo[$i][5][5]) ? 0 : $guildInfo[$i][5][5];
+	$chest = !isset($guildInfo[$i][5][6]) ? 0 : $guildInfo[$i][5][6];
+	$wrist = !isset($guildInfo[$i][5][7]) ? 0 : $guildInfo[$i][5][7];
+	$hands = !isset($guildInfo[$i][5][8]) ? 0 : $guildInfo[$i][5][8];
+	$waist = !isset($guildInfo[$i][5][9]) ? 0 : $guildInfo[$i][5][9];
+	$legs = !isset($guildInfo[$i][5][10]) ? 0 : $guildInfo[$i][5][10];
+	$feet = !isset($guildInfo[$i][5][11]) ? 0 : $guildInfo[$i][5][11];
+	$ring1 = !isset($guildInfo[$i][5][12]) ? 0 : $guildInfo[$i][5][12];
+	$ring2 = !isset($guildInfo[$i][5][13]) ? 0 : $guildInfo[$i][5][13];
+	$trinket1 = !isset($guildInfo[$i][5][14]) ? 0 : $guildInfo[$i][5][14];
+	$trinket2 = !isset($guildInfo[$i][5][15]) ? 0 : $guildInfo[$i][5][15];
+	$mainhand = !isset($guildInfo[$i][5][16]) ? 0 : $guildInfo[$i][5][16];
+	$offhand = !isset($guildInfo[$i][5][17]) ? 0 : $guildInfo[$i][5][17];
+	$enchant_weapon = !isset($guildInfo[$i][5][18]) ? 0 : $guildInfo[$i][5][18];
+	$enchant_neck = !isset($guildInfo[$i][5][19]) ? 0 : $guildInfo[$i][5][19];
+	$enchant_ring1 = !isset($guildInfo[$i][5][20]) ? 0 : $guildInfo[$i][5][20];
+	$enchant_ring2 = !isset($guildInfo[$i][5][21]) ? 0 : $guildInfo[$i][5][21];
+	$enchant_cloak = !isset($guildInfo[$i][5][22]) ? 0 : $guildInfo[$i][5][22];
+	$highmaul_normal_kills = !isset($guildInfo[$i][5][23]) ? 0 : $guildInfo[$i][5][23];
+	$highmaul_heroic_kills = !isset($guildInfo[$i][5][24]) ? 0 : $guildInfo[$i][5][24];
+	$highmaul_mythic_kills = !isset($guildInfo[$i][5][25]) ? 0 : $guildInfo[$i][5][25];
+	$blackrock_normal_kills = !isset($guildInfo[$i][5][26]) ? 0 : $guildInfo[$i][5][26];
+	$blackrock_heroic_kills = !isset($guildInfo[$i][5][27]) ? 0 : $guildInfo[$i][5][27];
+	$blackrock_mythic_kills = !isset($guildInfo[$i][5][28]) ? 0 : $guildInfo[$i][5][28];
+
 	$ring_max = max($ring1, $ring2);
 
+	//FIXME
 	$level = 100;
 
-	var_dump($guildInfo[$i][5][19]);
-	echo "$name : $enchant_neck <br />";
-	
-/*
 	$stmt = $conn->prepare("
 INSERT INTO members (name, realm, role, class, level, ilvl, ring_max, heroics, head, neck, shoulder, back, chest, wrist, hands, waist, legs, feet, ring1, ring2, trinket1, trinket2, mainhand, offhand, enchant_weapon, enchant_neck, enchant_cloak, enchant_ring1, enchant_ring2, highmaul_kills_normal, highmaul_kills_heroic, highmaul_kills_mythic, blackrock_kills_normal, blackrock_kills_heroic, blackrock_kills_mythic) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
 	ON DUPLICATE KEY UPDATE
@@ -80,7 +78,6 @@ INSERT INTO members (name, realm, role, class, level, ilvl, ring_max, heroics, h
 		var_dump($stmt);
 	}
 	$stmt->close();
-*/
 }
 $conn->close();
 ?>
