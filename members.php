@@ -23,7 +23,39 @@
 	<![endif]-->
 </head>
 <body>
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" placeholder="Name" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
 <div class="container">
+	<div class="row">
+	<div class="col-md-12">
+		<p>Below is a list of all the members of our guild, pulled from the Armory.</p>
+		<p>If the information is out of date, please click the button below to refresh the data.</p>
+		<p>
+		<button type="button" class="btn btn-default" value="refresh">
+			<span class="glyphicon glyphicon-refresh"></span> Refresh
+		</button>
+		</p>
 	<div class="table-responsive">
 		<table data-toggle="table" class="table table-striped table-condensed">
 			<thead>
@@ -141,8 +173,11 @@
 
 			</tbody>
 		</table>
-	</div>
 </div>
+</div>
+<footer>
+  <p>&copy; Solipsists, 2015</p>
+</footer>
 
 	<!-- Bootstrap core JavaScript
 	================================================== -->
@@ -150,5 +185,20 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="dist/js/bootstrap.min.js"></script>
 	<script src="dist/js/bootstrap-table.min.js"></script>
+	<script>
+$(document).ready(function(){
+    $('.btn').click(function(){
+	console.log('Button clicked')
+        var clickBtnValue = $(this).val();
+        var ajaxurl = './resources/lib/refreshGuild.php',
+        data =  {'action': clickBtnValue};
+        $.post(ajaxurl, data, function (response) {
+            // Response div goes here.
+            alert("action performed successfully");
+        });
+    });
+
+});
+	</script>
 </body>
 </html>
