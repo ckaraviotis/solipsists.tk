@@ -63,3 +63,23 @@
 .legendary {
 	background-color: #ff8000 !important;
 }
+
+#jumbo-banner {
+	background-repeat: no-repeat;
+	height: 300px !important;
+}
+
+#container-banner {
+	color: #ffffff;
+}
+
+.date {
+	font-style: italic;
+	font-weight: bold;
+	color: #c2c3c4;
+}
+
+.poster {
+	color: #a335ee;
+	font-weight: bold;
+}

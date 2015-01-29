@@ -9,11 +9,11 @@
 	<meta name="author" content="">
 	<link rel="icon" href="../../favicon.ico">
 
-	<title>Solipsists Guild Members</title>
+	<title>Roster - Solipsists.tk</title>
 
 	<!-- Bootstrap core CSS -->
-	<link href="dist/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="dist/css/bootstrap-table.min.css">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/bootstrap-table.min.css">
 	<link href="css/solipsists.css" rel="stylesheet">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -23,34 +23,14 @@
 	<![endif]-->
 </head>
 <body>
-   <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" placeholder="Name" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </nav>
+
+<?php include 'navbar.php'; ?>
+
 <div class="container">
 	<div class="row">
 	<div class="col-md-12">
 		<p>Below is a list of all the members of our guild, pulled from the Armory.</p>
-		<p>If the information is out of date, please click the button below to refresh the data.</p>
+		<p>If the information is out of date, please click the button below to refresh the data. Note the buttons a bit buggy and takes ages to work. Probably best not to click it ...</p>
 		<p>
 		<button type="button" class="btn btn-default" value="refresh">
 			<span class="glyphicon glyphicon-refresh"></span> Refresh
@@ -183,8 +163,8 @@
 	================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="dist/js/bootstrap.min.js"></script>
-	<script src="dist/js/bootstrap-table.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-table.min.js"></script>
 	<script>
 $(document).ready(function(){
     $('.btn').click(function(){

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,84 +8,116 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Jumbotron Template for Bootstrap</title>
+    <title>Home - Solipsists.tk</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/ekko-lightbox.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="jumbotron.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    <link href="css/solipsists.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <!-- Random banner -->
+    <?php
+      $bg = array('banner_1.png', 'banner_2.png', 'banner_3.png', 'banner_4.png', 'banner_5.png');
+      $i = rand(0, count($bg)-1);
+      $backgroundImage = "$bg[$i]";
+    ?>
+    <style type="text/css">
+    <!--
+    #jumbo-banner {
+      background-image: url(img/<?php echo $backgroundImage; ?>);
+    }
+    -->
+    </style>
   </head>
 
   <body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" placeholder="Name" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </nav>
-
+  <?php include 'navbar.php'; ?>
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
+    <div class="jumbotron" id="jumbo-banner">
+      <div class="container" id="container-banner">
         <h1>Solipsists</h1>
         <p>Casual raiding on Bloodhoof &amp; Khadgar EU.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
       </div>
     </div>
 
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Roster</h2>
-          <p>View our member list. This is updated nightly from the WoW Armory and contains a sortable list of members, including item levels and total progression statistics.</p>
-	  <p><a class="btn btn-default" href="members.php" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-          <h2>Blog</h2>
-          <p>Latest news &amp; updates from guildies.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-       </div>
-        <div class="col-md-4">
-          <h2>Calendar</h2>
-          <p>Upcoming guild events.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-      </div>
 
+    <div class="container">
+      <!-- Progression -->
+      <div class="row">
+	<h2>Highmaul</h2>
+	<div class="col-md-4">
+	  <h3>Normal</h3>
+	  <div class="progress">
+		  <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 100%;">
+		  7 / 7
+		  </div>
+	  </div>
+	</div>
+
+	<div class="col-md-4">
+	  <h3>Heroic</h3>
+	  <div class="progress">
+		  <div class="progress-bar" role="progressbar" aria-valuenow="84" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 84%;">
+	 	  6 / 7
+		  </div>
+	  </div>
+	</div>
+
+	<div class="col-md-4">
+	  <h3>Mythic</h3>
+	  <div class="progress">
+		  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
+	  	   0 / 7
+		  </div>
+	  </div>
+	</div>
+      </div>
+<!--
+      <div class="row">
+	<h2>Blackrock Foundry</h2>
+	<div class="col-md-4">
+	  <h2>Normal</h2>
+	  <div class="progress">
+		  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="wmin-width: 2em; width: 0%;">
+		  0 / 10
+		  </div>
+	  </div>
+	</div>
+
+	<div class="col-md-4">
+	  <h2>Heroic</h2>
+	  <div class="progress">
+		  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="wmin-width: 2em; width: 0%;">
+	 	  0 / 10
+		  </div>
+	  </div>
+	</div>
+
+	<div class="col-md-4">
+	  <h2>Mythic</h2>
+	  <div class="progress">
+		  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="wmin-width: 2em; width: 0%;">
+	  	   0 / 10
+		  </div>
+	  </div>
+	</div>
+      </div>
+-->
       <hr>
 
+     <?php include 'news.php'; ?>
+
       <footer>
-        <p>&copy; Company 2014</p>
+        <p>&copy; Spaceface, 2014</p>
       </footer>
     </div> <!-- /container -->
 
@@ -94,10 +125,15 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/ekko-lightbox.js"></script>
+    <script type="text/javascript">
+	$(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+	  event.preventDefault();
+	  $(this).ekkoLightbox();
+	}); 
+    </script>
   </body>
 </html>
 
