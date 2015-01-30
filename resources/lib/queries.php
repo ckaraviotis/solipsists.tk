@@ -43,4 +43,16 @@ FROM
 	INNER JOIN wow_classes ON members.class = wow_classes.id
 ');
 
+define('LATEST_POSTS',
+'
+SELECT
+        thumbnail,
+        postContent,
+        postDate,
+        postUser
+FROM
+        posts
 
+ORDER BY postDate DESC
+LIMIT 10
+');
