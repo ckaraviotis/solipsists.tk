@@ -25,7 +25,7 @@
 
     <!-- Random banner -->
     <?php
-      $bg = array('banner_1.png', 'banner_2.png', 'banner_3.png', 'banner_4.png', 'banner_5.png');
+      $bg = array('banner_1.png', 'banner_2.png', 'banner_3.png', 'banner_4.png', 'banner_5.png', 'banner_6.png', 'banner_7.png', 'banner_8.png');
       $i = rand(0, count($bg)-1);
       $backgroundImage = "$bg[$i]";
     ?>
