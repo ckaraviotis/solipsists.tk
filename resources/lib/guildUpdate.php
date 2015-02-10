@@ -2,7 +2,7 @@
 #
 # Update guild information in the database
 #
-include '/var/www/beta.solipsists.tk/resources/config.php';
+require_once (__DIR__.'/../config.php');
 include 'guildInfo.php';
 
 $conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);

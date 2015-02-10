@@ -2,7 +2,7 @@
 #
 # Retrieve guild and character information
 #
-include '/var/www/beta.solipsists.tk/resources/config.php';
+require_once (__DIR__.'/../config.php');
 include 'charInfo.php';
 
 function guildInfo() {
