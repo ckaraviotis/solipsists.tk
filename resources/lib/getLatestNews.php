@@ -2,9 +2,10 @@
 #
 # Update guild information in the database
 #
-require_once '/var/www/beta.solipsists.tk/resources/config.php';
+require_once (__DIR__.'/../config.php');
 require_once 'queries.php';
 require_once 'Parsedown.php';
+
 
 $parsedown = new Parsedown();
 

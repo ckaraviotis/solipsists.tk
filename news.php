@@ -12,8 +12,7 @@
         });
     </script>
 </head>
+
 <?php 
-
-require_once 'resources/lib/getLatestNews.php';
-
+    require_once 'resources/lib/getLatestNews.php';
 ?>
