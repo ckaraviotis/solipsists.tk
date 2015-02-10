@@ -13,7 +13,10 @@
 </head>
 
 <?php
+
   require_once 'resources/lib/Parsedown.php';
+  require_once 'resources/config.php';
+  require_once 'resources/lib/queries.php';
   $parsedown = new Parsedown();
 
   // Carry over existing strings
@@ -37,20 +40,24 @@
 
   // Post results to MySQL
   if ($_POST["submit"] == "post") {
-    include './resources/config.php';
-    include './resources/lib/queries.php';
     $conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+
     if ($conn->connect_error){
       die("Connection failed: " . $conn->connect_error);
     }
 
-    if (!$insert = $conn->query("
-      INSERT INTO posts(thumbnail, postContent, postDate, postUser) 
-      VALUES ('{$imgUrl}', '{$md}', NOW(), '{$poster}')
-      ")) {
-        die("Error inserting rows: " . $conn->error);
-      }
+    $stmt = $conn->prepare("INSERT INTO posts(thumbnail, postContent, postDate, postUser) VALUES (?, ?, NOW(), ?)");
+    $stmt->bind_param("sss", $imgUrl, $md, $poster);
+
+
+    if( ! $stmt->execute() ) {
+      die("Failed to write new post: " . $conn->error);
+    }
+    
+    $stmt->close();
+    $conn->close();
   }
+
 ?>
 
 <body>
