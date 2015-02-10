@@ -12,10 +12,11 @@
           <ul class="nav navbar-nav">
             <li><a href="index.php">Home</a></li>
             <li><a href="roster.php">Roster</a></li>
+            <li><a href="http://discourse.solipsists.tk">Forums</a></li>
             <li><a href="https://www.warcraftlogs.com/guilds/18349">WarcraftLogs</a></li>
           </ul>
 
-          <form class="navbar-form navbar-right">
+<!--          <form class="navbar-form navbar-right">
             <div class="form-group">
               <input type="text" placeholder="Name" class="form-control">
             </div>
@@ -23,7 +24,7 @@
               <input type="password" placeholder="Password" class="form-control">
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
+          </form> -->
         </div><!--/.navbar-collapse -->
       </div>
     </nav>

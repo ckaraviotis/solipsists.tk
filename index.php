@@ -81,14 +81,14 @@
 	  </div>
 	</div>
       </div>
-<!--
+
       <div class="row">
 	<h2>Blackrock Foundry</h2>
 	<div class="col-md-4">
 	  <h2>Normal</h2>
 	  <div class="progress">
-		  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="wmin-width: 2em; width: 0%;">
-		  0 / 10
+		  <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="wmin-width: 2em; width: 30%;">
+		  3 / 10
 		  </div>
 	  </div>
 	</div>
@@ -111,7 +111,7 @@
 	  </div>
 	</div>
       </div>
--->
+
       <hr>
 
      <?php include 'news.php'; ?>

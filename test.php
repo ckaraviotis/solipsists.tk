@@ -12,14 +12,43 @@
 </head>
 
 <?php
-	require_once 'resources/lib/Parsedown.php';
-	$parsedown = new Parsedown();
+require_once 'resources/lib/Parsedown.php';
+$parsedown = new Parsedown();
 
-	if ($_POST["markdown"]) {
-		$md = $_POST["markdown"];
-	} else {
-		$md = '';
-	}
+if ($_POST["markdown"]) {
+  $md = $_POST["markdown"];
+} else {
+  $md = '';
+}
+
+if ($_POST["poster"]) {
+  $poster = $_POST["poster"];
+} else {
+  $poster = '';
+}
+
+if ($_POST["imgUrl"]) {
+  $imgUrl = $_POST["imgUrl"];
+} else {
+  $imgUrl = '';
+}
+
+  // Post results to MySQL
+  if ($_POST["submit"] == "post") {
+    include './resources/config.php';
+    include './resources/lib/queries.php';
+    $conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+    if ($conn->connect_error){
+      die("Connection failed: " . $conn->connect_error);
+    }
+
+    if (!$insert = $conn->query("
+      INSERT INTO posts(thumbnail, postContent, postDate, postUser) 
+      VALUES ('{$imgUrl}', '{$md}', NOW(), '{$poster}')
+      ")) {
+        die("Error inserting rows: " . $conn->error);
+      }
+  }
 ?>
 
 <body>
@@ -30,11 +59,11 @@
 			<h3>Post</h3>
 			<form action="test.php" method="POST">
 				<textarea class="form-control markdown" name="markdown" rows="20">
-<?php echo $md; ?>
-				</textarea>
-				<input type="text" class="form-control" name="poster" placeholder="Username">
-				<button class="btn btn-default" type="submit" name="post">Post</button>
-				<button class="btn btn-default" type="submit" name="preview">Preview</button>
+<?php echo $md; ?></textarea>
+<input type="text" class="form-control" name="poster" placeholder="Username" value="<?php echo $poster; ?>">
+<input type="text" class="form-control" name="imgUrl" placeholder="Image path" value="<?php echo $imgUrl; ?>">
+				<button class="btn btn-default" type="submit" name="submit" value="post">Post</button>
+				<button class="btn btn-default" type="submit" name="submit" value="preview">Preview</button>
 			</form>
 		</div>
 		<div class="col-md-6">
@@ -44,16 +73,20 @@
 			</div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-md-12">
+
+<hr>
+
+  <div class="row">
+    <div class="col-md-12">
+    Below is the code needed to create a lightbox image in Markdown.
 			<pre>
-<div class="row">
-	<div class="col-md-3 col-md-offset-3">
-		<a data-toggle="lightbox" href="img/lm_config_1.png">
-			<img src="img/lm_config_1.png" class="img-responsive">
-		</a>
-	</div>
-</div>	
+&lt;div class="row"&gt;
+	&lt;div class="col-md-3 col-md-offset-3"&gt;
+		&lt;a data-toggle="lightbox" href="img/lm_config_1.png"&gt;
+			&lt;img src="img/lm_config_1.png" class="img-responsive"&gt;
+		&lt;/a&gt;
+	&lt;/div&gt;
+&lt;/div&gt;	
 			</pre>
 		</div>
 	</div>
