@@ -1,8 +1,21 @@
- body {
-    padding-top: 70px;
-    background: url(/img/crossword.png) repeat 0 0;
-  }
+/*
+ * Solipsists.tk CSS file
+ *
+ * There are !important's everywhere. Should probably look at increasing 
+ * specificity instead really.
+ */
 
+ /*
+  * 
+  */
+body {
+	padding-top: 70px;
+	background: url(/img/crossword.png) repeat 0 0;
+}
+
+/*
+ * Fonts
+ */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Raleway', Georgia, Times, serif !important;
     font-weight: bold !important;
@@ -11,8 +24,75 @@ p, div {
     font-family: 'Goudy+Bookletter+1911', Helvetica, Arial, sans-serif !important;
 }
 
-/* Class Colours */
+/*
+ * Center TH
+ */
+table thead th.th-center {
+	text-align: center;
+}
 
+table#guildRoster tbody {
+
+}
+  
+
+/*
+ * Highlight for selected row
+ */
+.table-striped tbody tr.highlight td { 
+    background-color: #b4d5ff;
+}
+
+table tr td {
+	font-size: 0.8em;
+	white-space: nowrap;
+}
+
+table tr td:empty {
+	background-color: #ffa4a4;
+	border: 1px solid #efefef;
+}
+
+/*
+ * Fixed height banner for header images
+ */
+#jumbo-banner {
+	background-repeat: no-repeat;
+	height: 300px !important;
+}
+
+#container-banner {
+	color: #ffffff;
+}
+
+/*
+ * Formatting for date slug
+ */
+.date {
+	font-style: italic;
+	font-weight: bold;
+	color: #c2c3c4;
+}
+
+/*
+ * Formatting for poster slug
+ */
+.poster {
+	color: #a335ee;
+	font-weight: bold;
+}
+
+/*
+ * Markdown on create post page
+ */
+.markdown {
+	font-family: 'Inconsolata', sans-serif;
+}
+
+
+/* 
+ * Class Colours 
+ */
 .deathknight {
 	background-color: #C41F3B !important;
 }
@@ -57,7 +137,9 @@ p, div {
 	background-color: #C79C6E !important;
 }
 
-/* Quality Colours */
+/*
+ * Quality Colours 
+ */
 .uncommon {
 	background-color: #1eff00 !important;
 }
@@ -72,28 +154,4 @@ p, div {
 
 .legendary {
 	background-color: #ff8000 !important;
-}
-
-#jumbo-banner {
-	background-repeat: no-repeat;
-	height: 300px !important;
-}
-
-#container-banner {
-	color: #ffffff;
-}
-
-.date {
-	font-style: italic;
-	font-weight: bold;
-	color: #c2c3c4;
-}
-
-.poster {
-	color: #a335ee;
-	font-weight: bold;
-}
-
-.markdown {
-	font-family: 'Inconsolata', sans-serif;
 }

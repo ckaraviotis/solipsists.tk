@@ -11,7 +11,7 @@
 
 	<!-- Bootstrap core CSS -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/bootstrap-table.min.css">
+	<!--<link rel="stylesheet" href="css/bootstrap-table.min.css">-->
 	<link href="css/solipsists.css" rel="stylesheet">
 
 </head>
@@ -21,7 +21,7 @@
 
 <div class="container">
 	<div class="row">
-	<div class="col-md-12">
+	<div class="col-lg-12">
 		<p>Below is a list of all the members of our guild, pulled from the Armory.</p>
 		<p>If the information is out of date, please click the button below to refresh the data. Note the buttons a bit buggy and takes ages to work. Probably best not to click it ...</p>
 		<p>
@@ -30,18 +30,25 @@
 		</button>
 		</p>
 	<div class="table-responsive">
-		<table data-toggle="table" class="table table-striped table-condensed">
+		<table id="guildRoster" class="tablesorter table table-striped table-condensed">
 			<thead>
 				<tr>
-					<th data-sortable="true">Name</th>
-					<th data-sortable="true">Realm</th>
-					<th data-sortable="true">Role</th>
-					<th data-sortable="true">Class</th>
-					<th data-sortable="true">Rank</th>
-					<th data-sortable="true">Level</th>
-					<th data-sortable="true">iLvl</th>
-					<th data-sortable="true">Ring(Max)</th>
-					<th>Heroics</th>
+					<th colspan=8 class="th-center {sorter: false}"></th>
+					<th colspan=5 class="th-center {sorter: false}">Enchants</th>
+					<th colspan=3 class="th-center {sorter: false}">Highmaul</th>
+					<th colspan=3 class="th-center {sorter: false}">Blackrock Foundry</th>
+				</tr>
+
+				<tr>
+					<th>Name</th>
+					<th>Realm</th>
+					<th>Role</th>
+					<th>Class</th>
+					<th>Rank</th>
+					<th>Level</th>
+					<th>iLvl</th>
+					<th>Ring<br /> (Max)</th>
+					<!--<th>H Dungeon</th>
 					<th>Head</th>
 					<th>Neck</th>
 					<th>Shoulder</th>
@@ -57,18 +64,18 @@
 					<th>Trinket 1</th>
 					<th>Trinket 2</th>
 					<th>Main Hand</th>
-					<th>Off Hand</th>
-					<th>Enchant: Weapon</th>
-					<th>Enchant: Neck</th>
-					<th>Enchant: Cloak</th>
-					<th>Enchant: Ring 1</th>
-					<th>Enchant: Ring 2</th>
-					<th data-sortable="true">Highmaul: Normal</th>
-					<th data-sortable="true">Highmaul: Heroic</th>
-					<th data-sortable="true">Highmaul: Mythinc</th>
-					<th data-sortable="true">BRF: Normal</th>
-					<th data-sortable="true">BRF: Heroic</th>
-					<th data-sortable="true">BRF: Mythic</th>
+					<th>Off Hand</th>-->
+					<th>Weapon</th>
+					<th>Neck</th>
+					<th>Cloak</th>
+					<th>Ring 1</th>
+					<th>Ring 2</th>
+					<th>Normal</th>
+					<th>Heroic</th>
+					<th>Mythic</th>
+					<th>Normal</th>
+					<th>Heroic</th>
+					<th>Mythic</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -79,7 +86,7 @@
 					if ($conn->connect_error){
 						die("Connection failed: " . $conn->connect_error);
 					}
-					$result = $conn->query(MEMBERS);
+					$result = $conn->query(LITE_MEMB);
 					
 					if ($result->num_rows > 0) {
 						// output data of each row
@@ -110,7 +117,7 @@
 							}
 							echo $row["ilvl"] . "</td>";
 							echo "<td>" . $row["ring_max"] . "</td>";
-							echo "<td>" . $row["heroics"] . "</td>";
+							/*echo "<td>" . $row["heroics"] . "</td>";
 							echo "<td>" . $row["head"] . "</td>";
 							echo "<td>" . $row["neck"] . "</td>";
 							echo "<td>" . $row["shoulder"] . "</td>";
@@ -126,12 +133,12 @@
 							echo "<td>" . $row["trinket1"] . "</td>";
 							echo "<td>" . $row["trinket2"] . "</td>";
 							echo "<td>" . $row["mainhand"] . "</td>";
-							echo "<td>" . $row["offhand"] . "</td>";
-							echo "<td>" . $row["enchant_weapon"] . "</td>";
-							echo "<td>" . $row["enchant_neck"] . "</td>";
-							echo "<td>" . $row["enchant_cloak"] . "</td>";
-							echo "<td>" . $row["enchant_ring1"] . "</td>";
-							echo "<td>" . $row["enchant_ring2"] . "</td>";
+							echo "<td>" . $row["offhand"] . "</td>"; */
+							echo "<td class='td-enchant'>" . $row["enchant_weapon"] . "</td>";
+							echo "<td class='td-enchant'>" . $row["enchant_neck"] . "</td>";
+							echo "<td class='td-enchant'>" . $row["enchant_cloak"] . "</td>";
+							echo "<td class='td-enchant'>" . $row["enchant_ring1"] . "</td>";
+							echo "<td class='td-enchant'>" . $row["enchant_ring2"] . "</td>";
 							echo "<td>" . $row["highmaul_kills_normal"] . "</td>";
 							echo "<td>" . $row["highmaul_kills_heroic"] . "</td>";
 							echo "<td>" . $row["highmaul_kills_mythic"] . "</td>";
@@ -154,11 +161,15 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.metadata.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/bootstrap-table.min.js"></script>
+<!--<script src="js/bootstrap-table.min.js"></script>-->
+<script src="js/jquery.tablesorter.js"></script>
 <script>
 	$(document).ready(function(){
+		$("#guildRoster").tablesorter();
+		
 	    $('.btn').click(function(){
 		console.log('Button clicked')
 	        var clickBtnValue = $(this).val();
@@ -170,7 +181,13 @@
 	        });
 	    });
 
+		$('#guildRoster').on('click', 'tbody tr', function(event) {
+	    	$(this).addClass('highlight').siblings().removeClass('highlight');
+		});
+
 	});
+
+
 </script>
 </body>
 </html>
