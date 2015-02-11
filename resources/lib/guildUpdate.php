@@ -51,11 +51,11 @@ for($i = 0; $i < count($guildInfo); $i++) {
 	$ring_max = max($ring1, $ring2);
 
 	//FIXME
-	$level = 100;
+	$level = 100;   
 
 	$stmt = $conn->prepare("
-INSERT INTO members (name, realm, role, class, level, ilvl, ring_max, heroics, head, neck, shoulder, back, chest, wrist, hands, waist, legs, feet, ring1, ring2, trinket1, trinket2, mainhand, offhand, enchant_weapon, enchant_neck, enchant_cloak, enchant_ring1, enchant_ring2, highmaul_kills_normal, highmaul_kills_heroic, highmaul_kills_mythic, blackrock_kills_normal, blackrock_kills_heroic, blackrock_kills_mythic) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
-	ON DUPLICATE KEY UPDATE
+		INSERT INTO members (name, realm, role, class, level, ilvl, ring_max, heroics, head, neck, shoulder, back, chest, wrist, hands, waist, legs, feet, ring1, ring2, trinket1, trinket2, mainhand, offhand, enchant_weapon, enchant_neck, enchant_cloak, enchant_ring1, enchant_ring2, highmaul_kills_normal, highmaul_kills_heroic, highmaul_kills_mythic, blackrock_kills_normal, blackrock_kills_heroic, blackrock_kills_mythic, IsCurrent) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+			ON DUPLICATE KEY UPDATE
 		name=VALUES(name), realm=VALUES(realm), role=VALUES(role),class=VALUES(class),level=VALUES(level),ilvl=VALUES(ilvl),ring_max=VALUES(ring_max),
 		heroics=VALUES(heroics),head=VALUES(head),neck=VALUES(neck),shoulder=VALUES(shoulder),back=VALUES(back),chest=VALUES(chest),wrist=VALUES(wrist),
 		hands=VALUES(hands),waist=VALUES(waist),legs=VALUES(legs),feet=VALUES(feet),ring1=VALUES(ring1),ring2=VALUES(ring2),trinket1=VALUES(trinket1),
@@ -64,17 +64,18 @@ INSERT INTO members (name, realm, role, class, level, ilvl, ring_max, heroics, h
 		enchant_ring2=VALUES(enchant_ring2),highmaul_kills_normal=VALUES(highmaul_kills_normal),
 		highmaul_kills_heroic=VALUES(highmaul_kills_heroic),highmaul_kills_mythic=VALUES(highmaul_kills_mythic),
 		blackrock_kills_normal=VALUES(blackrock_kills_normal),blackrock_kills_heroic=VALUES(blackrock_kills_heroic),
-		blackrock_kills_mythic=VALUES(blackrock_kills_mythic)
+		blackrock_kills_mythic=VALUES(blackrock_kills_mythic), IsCurrent=VALUES(IsCurrent)
 	");
 
-	$stmt->bind_param("sssiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",$name, $realm, $role, $class, $level, $ilvl, $ring_max, $heroicKills, $head, $neck, $shoulder, $back, $chest, $wrist, $hands, $waist, $legs, $feet, $ring1, $ring2, $trinket1, $trinket2, $mainhand, $offhand, $enchant_weapon, $enchant_neck, $enchant_cloak, $enchant_ring1, $enchant_ring2, $highmaul_normal_kills , $highmaul_heroic_kills , $highmaul_mythic_kills , $blackrock_normal_kills, $blackrock_heroic_kills, $blackrock_mythic_kills);
+	$IsCurrent = 1;
+	$stmt->bind_param("sssiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",$name, $realm, $role, $class, $level, $ilvl, $ring_max, $heroicKills, $head, $neck, $shoulder, $back, $chest, $wrist, $hands, $waist, $legs, $feet, $ring1, $ring2, $trinket1, $trinket2, $mainhand, $offhand, $enchant_weapon, $enchant_neck, $enchant_cloak, $enchant_ring1, $enchant_ring2, $highmaul_normal_kills , $highmaul_heroic_kills , $highmaul_mythic_kills , $blackrock_normal_kills, $blackrock_heroic_kills, $blackrock_mythic_kills, $IsCurrent);
 
 	if( $stmt->execute() ) {
 		echo "<b>$name</b> written to database OK.<br />";
 	} else {
 		echo "Error writing <b>$name</b>";
 		var_dump($stmt);
-	}
+	}  
 	$stmt->close();
 }
 $conn->close();

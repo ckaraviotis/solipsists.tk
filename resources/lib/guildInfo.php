@@ -12,6 +12,28 @@ function guildInfo() {
 	$memberAry = $guild->{"members"};
 	$returnObject = [];
 
+	// Reset IsCurrent
+	$conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+	if ($conn->connect_error){
+		die("Connection failed: " . $conn->connect_error);
+	}
+
+	$stmt = $conn->prepare("
+		UPDATE members SET IsCurrent = 0
+	");
+
+   	if( ! $stmt->execute() ) {
+      die("Failed to reset Current flag: " . $conn->error);
+    } else {
+    	echo "Current flag reset OK.";
+    }
+
+    $stmt->close();
+    $conn->close();
+
+    // Increase timeout because this is pretty slow
+	set_time_limit(120);
+
 	for($i=0;$i < count($memberAry); $i++) {
 		$name = $memberAry[$i]->{"character"}->{"name"};
 		$realm =  $memberAry[$i]->{"character"}->{"realm"};

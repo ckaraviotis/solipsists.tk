@@ -41,6 +41,8 @@ define('MEMBERS',
 FROM
 	members
 	INNER JOIN wow_classes ON members.class = wow_classes.id
+WHERE
+	IsCurrent = 1
 ');
 
 define('LATEST_POSTS',

@@ -10,37 +10,38 @@ function charInfo($name, $realm) {
 
 	$wodStats = $char->{"statistics"}->{"subCategories"}[5]->{"subCategories"}[5]->{"statistics"};
 
-	$heroicKills += $wodStats[1]->{"quantity"};
-	$heroicKills += $wodStats[3]->{"quantity"};
-	$heroicKills += $wodStats[5]->{"quantity"};
-	$heroicKills += $wodStats[7]->{"quantity"};
-	$heroicKills += $wodStats[9]->{"quantity"};
-	$heroicKills += $wodStats[11]->{"quantity"};
-	$heroicKills += $wodStats[13]->{"quantity"};
-	$heroicKills += $wodStats[15]->{"quantity"};
+	// Heroic Dungeon Boss Kills
+	$heroicKills =  !isset($wodStats[1]->{"quantity"}) ? 0 : $wodStats[1]->{"quantity"};
+	$heroicKills += !isset($wodStats[3]->{"quantity"}) ? 0 : $wodStats[3]->{"quantity"};
+	$heroicKills += !isset($wodStats[5]->{"quantity"}) ? 0 : $wodStats[5]->{"quantity"};
+	$heroicKills += !isset($wodStats[7]->{"quantity"}) ? 0 : $wodStats[7]->{"quantity"};
+	$heroicKills += !isset($wodStats[9]->{"quantity"}) ? 0 : $wodStats[9]->{"quantity"};
+	$heroicKills += !isset($wodStats[11]->{"quantity"}) ? 0 : $wodStats[11]->{"quantity"};
+	$heroicKills += !isset($wodStats[13]->{"quantity"}) ? 0 : $wodStats[13]->{"quantity"};
+	$heroicKills += !isset($wodStats[15]->{"quantity"}) ? 0 : $wodStats[15]->{"quantity"};
 
-	$head = $char->{"items"}->{"head"}->{"itemLevel"};
-	$neck = $char->{"items"}->{"neck"}->{"itemLevel"};
-	$shoulder = $char->{"items"}->{"shoulder"}->{"itemLevel"};
-	$back = $char->{"items"}->{"back"}->{"itemLevel"};
-	$chest = $char->{"items"}->{"chest"}->{"itemLevel"};
-	$wrist = $char->{"items"}->{"wrist"}->{"itemLevel"};
-	$hands = $char->{"items"}->{"hands"}->{"itemLevel"};
-	$waist = $char->{"items"}->{"waist"}->{"itemLevel"};
-	$legs = $char->{"items"}->{"legs"}->{"itemLevel"};
-	$feet = $char->{"items"}->{"feet"}->{"itemLevel"};
-	$finger1 = $char->{"items"}->{"finger1"}->{"itemLevel"};
-	$finger2 = $char->{"items"}->{"finger2"}->{"itemLevel"};
-	$trinket1 = $char->{"items"}->{"trinket1"}->{"itemLevel"};
-	$trinket2 = $char->{"items"}->{"trinket2"}->{"itemLevel"};
-	$mainHand = $char->{"items"}->{"mainHand"}->{"itemLevel"};
-	$offHand = $char->{"items"}->{"offHand"}->{"itemLevel"};
+	$head = !isset($char->{"items"}->{"head"}->{"itemLevel"}) ? 0 : $char->{"items"}->{"head"}->{"itemLevel"};
+	$neck = !isset($char->{"items"}->{"neck"}->{"itemLevel"}) ? 0 : $char->{"items"}->{"neck"}->{"itemLevel"};
+	$shoulder = !isset($char->{"items"}->{"shoulder"}->{"itemLevel"}) ? 0 : $char->{"items"}->{"shoulder"}->{"itemLevel"};
+	$back = !isset($char->{"items"}->{"back"}->{"itemLevel"}) ? 0 : $char->{"items"}->{"back"}->{"itemLevel"};
+	$chest = !isset($char->{"items"}->{"chest"}->{"itemLevel"}) ? 0 : $char->{"items"}->{"chest"}->{"itemLevel"};
+	$wrist = !isset($char->{"items"}->{"wrist"}->{"itemLevel"}) ? 0 : $char->{"items"}->{"wrist"}->{"itemLevel"};
+	$hands = !isset($char->{"items"}->{"hands"}->{"itemLevel"}) ? 0 : $char->{"items"}->{"hands"}->{"itemLevel"};
+	$waist = !isset($char->{"items"}->{"waist"}->{"itemLevel"}) ? 0 : $char->{"items"}->{"waist"}->{"itemLevel"};
+	$legs = !isset($char->{"items"}->{"legs"}->{"itemLevel"}) ? 0 : $char->{"items"}->{"legs"}->{"itemLevel"};
+	$feet = !isset($char->{"items"}->{"feet"}->{"itemLevel"}) ? 0 : $char->{"items"}->{"feet"}->{"itemLevel"};
+	$finger1 = !isset($char->{"items"}->{"finger1"}->{"itemLevel"}) ? 0 : $char->{"items"}->{"finger1"}->{"itemLevel"};
+	$finger2 = !isset($char->{"items"}->{"finger2"}->{"itemLevel"}) ? 0 : $char->{"items"}->{"finger2"}->{"itemLevel"};
+	$trinket1 = !isset($char->{"items"}->{"trinket1"}->{"itemLevel"}) ? 0 : $char->{"items"}->{"trinket1"}->{"itemLevel"};
+	$trinket2 = !isset($char->{"items"}->{"trinket2"}->{"itemLevel"}) ? 0 : $char->{"items"}->{"trinket2"}->{"itemLevel"};
+	$mainHand = !isset($char->{"items"}->{"mainHand"}->{"itemLevel"}) ? 0 : $char->{"items"}->{"mainHand"}->{"itemLevel"};	
+	$offHand = !isset($char->{"items"}->{"offHand"}->{"itemLevel"}) ? 0 : $char->{"items"}->{"offHand"}->{"itemLevel"};
 
-	$weaponEnchant = $char->{"items"}->{"mainHand"}->{"tooltipParams"}->{"enchant"};
-	$neckEnchant = $char->{"items"}->{"neck"}->{"tooltipParams"}->{"enchant"};
-	$ring1Enchant = $char->{"items"}->{"finger1"}->{"tooltipParams"}->{"enchant"};
-	$ring2Enchant = $char->{"items"}->{"finger2"}->{"tooltipParams"}->{"enchant"};
-	$cloakEnchant = $char->{"items"}->{"back"}->{"tooltipParams"}->{"enchant"};
+	$weaponEnchant = !isset($char->{"items"}->{"mainHand"}->{"tooltipParams"}->{"enchant"}) ? 0 : $char->{"items"}->{"mainHand"}->{"tooltipParams"}->{"enchant"};
+	$neckEnchant = !isset($char->{"items"}->{"neck"}->{"tooltipParams"}->{"enchant"}) ? 0 : $char->{"items"}->{"neck"}->{"tooltipParams"}->{"enchant"};
+	$ring1Enchant = !isset($char->{"items"}->{"finger1"}->{"tooltipParams"}->{"enchant"}) ? 0 : $char->{"items"}->{"finger1"}->{"tooltipParams"}->{"enchant"};
+	$ring2Enchant = !isset($char->{"items"}->{"finger2"}->{"tooltipParams"}->{"enchant"}) ? 0 : $char->{"items"}->{"finger2"}->{"tooltipParams"}->{"enchant"};
+	$cloakEnchant = !isset($char->{"items"}->{"back"}->{"tooltipParams"}->{"enchant"}) ? 0 : $char->{"items"}->{"back"}->{"tooltipParams"}->{"enchant"};
 
 	$highmaulStats =  $char->{"progression"}->{"raids"}[32]->{"bosses"};
 	$highmaul_normal_kills = 0;
