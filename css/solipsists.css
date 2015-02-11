@@ -1,6 +1,16 @@
  body {
     padding-top: 70px;
+    background: url(/img/crossword.png) repeat 0 0;
   }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Raleway', Georgia, Times, serif !important;
+    font-weight: bold !important;
+}
+p, div {
+    font-family: 'Goudy+Bookletter+1911', Helvetica, Arial, sans-serif !important;
+}
+
 /* Class Colours */
 
 .deathknight {

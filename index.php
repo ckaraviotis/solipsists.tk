@@ -12,8 +12,13 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/ekko-lightbox.min.css" rel="stylesheet">
 
-  <!-- Custom styles for this template -->
+  <!-- Fonts -->
+  <link href="http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
   <link href="css/solipsists.css" rel="stylesheet">
+
 
   <!-- Random banner -->
   <?php
