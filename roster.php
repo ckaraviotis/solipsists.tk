@@ -70,12 +70,12 @@
 					<th>Cloak</th>
 					<th>Ring 1</th>
 					<th>Ring 2</th>
-					<th>Normal</th>
-					<th>Heroic</th>
-					<th>Mythic</th>
-					<th>Normal</th>
-					<th>Heroic</th>
-					<th>Mythic</th>
+					<th>[N]</th>
+					<th>[H]</th>
+					<th>[M]</th>
+					<th>[N]</th>
+					<th>[H]</th>
+					<th>[M]</th>
 				</tr>
 			</thead>
 			<tbody>

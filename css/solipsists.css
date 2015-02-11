@@ -45,7 +45,7 @@ table#guildRoster tbody {
 
 table tr td {
 	font-size: 0.8em;
-	white-space: nowrap;
+	vertical-align: middle !important;
 }
 
 table tr td:empty {
