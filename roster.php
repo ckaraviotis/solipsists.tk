@@ -14,6 +14,10 @@
 	<!--<link rel="stylesheet" href="css/bootstrap-table.min.css">-->
 	<link href="css/solipsists.css" rel="stylesheet">
 
+	<!-- Fonts -->
+	<link href="http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911" rel="stylesheet" type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet" type="text/css">
+
 </head>
 <body>
 
