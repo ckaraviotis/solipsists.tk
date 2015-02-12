@@ -49,7 +49,9 @@ define('LITE_MEMB',
 	members.name, 
 	members.realm, 
 	members.role, 
-	wow_classes.name AS classname, 
+	wow_classes.name AS classname,
+	members.rank AS rankInt,
+	guild_ranks.rank,
 	members.level, 
 	members.ilvl, 
 	members.ring_max,
@@ -73,6 +75,7 @@ FROM
 	INNER JOIN wow_enchants cloak_enchant ON members.enchant_cloak = cloak_enchant.enchantID
 	INNER JOIN wow_enchants ring1_enchant ON members.enchant_ring1 = ring1_enchant.enchantID
 	INNER JOIN wow_enchants ring2_enchant ON members.enchant_ring2 = ring2_enchant.enchantID
+	INNER JOIN guild_ranks ON members.rank = guild_ranks.rankid
 WHERE
 	IsCurrent = 1
 ');
