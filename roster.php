@@ -100,7 +100,7 @@
 							echo "<td>" . $row["realm"] . "</td>";
 							echo "<td>" . $row["role"] . "</td>";
 							echo "<td class=\"" . $row["css_name"] . "\">"  . $row["classname"] . "</td>";
-							echo "<td> nil </td>";
+							echo "<td><span class='rank'>" . $row["rankInt"] . "</span>" . $row["rank"] . "</td>";
 							echo "<td>" . $row["level"] . "</td>";
 
 							// Style cell based on ilvl value

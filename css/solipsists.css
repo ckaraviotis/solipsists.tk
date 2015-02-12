@@ -31,8 +31,8 @@ table thead th.th-center {
 	text-align: center;
 }
 
-table#guildRoster tbody {
-
+span.rank {
+	visibility: hidden;
 }
   
 
