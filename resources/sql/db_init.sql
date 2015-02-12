@@ -62,7 +62,8 @@ CREATE TABLE `members` (
   `blackrock_kills_normal` int(11) NOT NULL,
   `blackrock_kills_heroic` int(11) NOT NULL,
   `blackrock_kills_mythic` int(11) NOT NULL,
-  `IsCurrent` tinyint(4) NOT NULL
+  `IsCurrent` tinyint(4) NOT NULL,
+  `rank` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
