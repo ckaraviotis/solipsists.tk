@@ -47,68 +47,7 @@
   </div>
 
 <div class="container">
-  <!-- Progression -->
-  <div class="row">
-  
-    <h2>Highmaul</h2>    
-    <div class="col-md-4">
-      <h3>Normal</h3>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 100%;">
-          7 / 7
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <h3>Heroic</h3>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="84" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 84%;">
-          6 / 7
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <h3>Mythic</h3>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
-          0 / 7
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-	
-    <h2>Blackrock Foundry</h2>
-    <div class="col-md-4">
-      <h2>Normal</h2>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="wmin-width: 2em; width: 30%;">
-          3 / 10
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <h2>Heroic</h2>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="wmin-width: 2em; width: 0%;">
-          0 / 10
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <h2>Mythic</h2>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="wmin-width: 2em; width: 0%;">
-          0 / 10
-        </div>
-      </div>
-    </div>
-  </div>
+<?php include 'progression.php'; ?>
 
   <hr>
 

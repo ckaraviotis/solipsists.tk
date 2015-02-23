@@ -80,6 +80,9 @@ WHERE
 	IsCurrent = 1
 ');
 
+/*
+ * 10 newest posts
+ */
 define('LATEST_POSTS',
 '
 SELECT
@@ -93,6 +96,10 @@ FROM
 ORDER BY postDate DESC
 LIMIT 10
 ');
+
+/*
+ * Update enchant id's
+ */
 define('NEW_ENCHANT_IDS',
 'SELECT DISTINCT 
 	enchantID
@@ -115,4 +122,21 @@ define('CURR_ENCHANT_IDS',
 	enchant
 FROM 
 	wow_enchants
+');
+
+/*
+ * Get progression figures
+ */
+define('PROGRESSION',
+'
+SELECT
+        name,
+        normal,
+        heroic,
+        mythic,
+        max
+FROM
+        progression
+
+ORDER BY raidId ASC
 ');
